@@ -1,0 +1,31 @@
+2024-08-20 09:47:37.257828 - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2024-08-20 09:47:37.257828 - INFO - Region: us2
+2024-08-20 09:47:37.257828 - INFO - Launched new scan: 91804e31-eec4-4957-a3c8-63226c6258c7
+2024-08-20 09:47:37.257828 - INFO - CHECKING STATUS OF REMAINING SCANS... (Scan ID, App Name, Scan Config Name): STATUS
+2024-08-20 09:47:37.257828 - INFO - (91804e31-eec4-4957-a3c8-63226c6258c7, gowdasagar.online, http://gowdasagar.online): PENDING
+2024-08-20 09:47:37.257828 - INFO - CHECKING STATUS OF REMAINING SCANS... (Scan ID, App Name, Scan Config Name): STATUS
+2024-08-20 09:47:37.257828 - INFO - (91804e31-eec4-4957-a3c8-63226c6258c7, gowdasagar.online, http://gowdasagar.online): RUNNING
+2024-08-20 09:47:37.257828 - INFO - CHECKING STATUS OF REMAINING SCANS... (Scan ID, App Name, Scan Config Name): STATUS
+2024-08-20 09:47:37.257828 - INFO - (91804e31-eec4-4957-a3c8-63226c6258c7, gowdasagar.online, http://gowdasagar.online): RUNNING
+2024-08-20 09:47:37.257828 - INFO - CHECKING STATUS OF REMAINING SCANS... (Scan ID, App Name, Scan Config Name): STATUS
+2024-08-20 09:47:37.257828 - INFO - (91804e31-eec4-4957-a3c8-63226c6258c7, gowdasagar.online, http://gowdasagar.online): RUNNING
+2024-08-20 09:47:37.257828 - INFO - CHECKING STATUS OF REMAINING SCANS... (Scan ID, App Name, Scan Config Name): STATUS
+2024-08-20 09:47:37.257828 - INFO - (91804e31-eec4-4957-a3c8-63226c6258c7, gowdasagar.online, http://gowdasagar.online): SCANNED
+2024-08-20 09:47:37.257828 - INFO - CHECKING STATUS OF REMAINING SCANS... (Scan ID, App Name, Scan Config Name): STATUS
+2024-08-20 09:47:37.257828 - INFO - (91804e31-eec4-4957-a3c8-63226c6258c7, gowdasagar.online, http://gowdasagar.online): SCANNED
+2024-08-20 09:47:37.257828 - INFO - CHECKING STATUS OF REMAINING SCANS... (Scan ID, App Name, Scan Config Name): STATUS
+2024-08-20 09:47:37.257828 - INFO - (91804e31-eec4-4957-a3c8-63226c6258c7, gowdasagar.online, http://gowdasagar.online): SCANNED
+2024-08-20 09:47:37.257828 - INFO - CHECKING STATUS OF REMAINING SCANS... (Scan ID, App Name, Scan Config Name): STATUS
+2024-08-20 09:47:37.257828 - INFO - (91804e31-eec4-4957-a3c8-63226c6258c7, gowdasagar.online, http://gowdasagar.online): COMPLETE
+2024-08-20 09:47:37.257828 - INFO - REPORTING VULNERABILITY DETAILS OF SCANS... (Scan ID, App Name, Scan Config Name): DETAILS
+2024-08-20 09:47:37.257828 - INFO - (91804e31-eec4-4957-a3c8-63226c6258c7, gowdasagar.online, http://gowdasagar.online: 10 vulnerabilities found)
+2024-08-20 09:47:37.257828 - INFO - Vuln ID: 0f17f1d9-4d3c-449e-98fe-743e4c296fbd, Severity: LOW, Description: None
+2024-08-20 09:47:37.257828 - INFO - Vuln ID: 1c6e2bf4-4b62-4a29-8773-04913b824dc4, Severity: LOW, Description: None
+2024-08-20 09:47:37.257828 - INFO - Vuln ID: 56ba9fab-7efe-4dc7-a2f9-d8cae15afe13, Severity: LOW, Description: None
+2024-08-20 09:47:37.257828 - INFO - Vuln ID: 683a266e-b372-430e-bc0d-12d398d311b5, Severity: LOW, Description: None
+2024-08-20 09:47:37.257828 - INFO - Vuln ID: 3f21abfe-0609-4b6b-ae60-0585f303b541, Severity: INFORMATIONAL, Description: None
+2024-08-20 09:47:37.257828 - INFO - Vuln ID: 78ef2da9-943d-4a4a-aedc-c46a06f12982, Severity: INFORMATIONAL, Description: None
+2024-08-20 09:47:37.257828 - INFO - Vuln ID: fb293849-c523-4cd0-8640-867a0bc4c0a0, Severity: INFORMATIONAL, Description: None
+2024-08-20 09:47:37.257828 - INFO - Vuln ID: 585b51d9-55c5-404b-b48f-4373be8cec77, Severity: SAFE, Description: None
+2024-08-20 09:47:37.257828 - INFO - Vuln ID: 92232f20-6ec2-425c-a760-3841947c8751, Severity: SAFE, Description: None
+2024-08-20 09:47:37.257828 - INFO - Vuln ID: c1d82298-7ae0-4093-8cd8-1dc859f053d8, Severity: SAFE, Description: None

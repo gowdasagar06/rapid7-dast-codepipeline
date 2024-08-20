@@ -1,0 +1,6 @@
+connection:
+  region: us2
+scan_info:
+  - app_name: gowdasagar.online
+    scan_config_name: http://gowdasagar.online
+status_check_interval: 60
