@@ -11,6 +11,8 @@ phases:
       - echo "Nothing to do in the pre_build phase..."
       - yum update -y
       - yum install jq -y
+      - pip install requests
+      - pip install ruamel.yaml
       
   build:
     commands:
