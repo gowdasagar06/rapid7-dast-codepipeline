@@ -19,5 +19,7 @@ phases:
       - echo "Build started"
       - cd bin
       - python3 main.py & PYTHON_PID=$!; tail -f ../log/scan_automation.log & TAIL_PID=$!; wait $PYTHON_PID; kill $TAIL_PID
+      # Check for Low severity vulnerabilities in the log file
       - if grep -q "Severity: LOW" ../log/scan_automation.log; then echo "Low severity vulnerability found. Aborting the pipeline."; exit 1; fi
+
       
