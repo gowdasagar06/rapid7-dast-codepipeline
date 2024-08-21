@@ -91,6 +91,24 @@ class InsightAppSec:
     #         logging.error(f"Error in InsightAppSec API: Get Vulnerabilities\n{e}")
     #         raise e
 
+    # def get_vulnerabilities(self, scan_id):
+    #     url = self.url + f"/vulnerabilities?query=vulnerability.scans.id='{scan_id}'"
+    #     headers = self.headers
+
+    #     try:
+    #         response = requests.get(url=url, headers=headers)
+    #         response.raise_for_status()
+
+    #         vulnerabilities = response.json()
+    #         for vuln in vulnerabilities.get("data", []):
+    #             if vuln.get("severity") == "Low":
+    #                 logging.error(f"Low severity vulnerability found: {vuln.get('title')}")
+    #                 sys.exit(1)  # Exit with non-zero status to abort the pipeline
+    #         return vulnerabilities
+    #     except Exception as e:
+    #         logging.error(f"Error in InsightAppSec API: Get Vulnerabilities\n{e}")
+    #         raise e
+
     def get_vulnerabilities(self, scan_id):
         url = self.url + f"/vulnerabilities?query=vulnerability.scans.id='{scan_id}'"
         headers = self.headers
@@ -100,11 +118,23 @@ class InsightAppSec:
             response.raise_for_status()
 
             vulnerabilities = response.json()
+            low_severity_found = False
+
             for vuln in vulnerabilities.get("data", []):
-                if vuln.get("severity") == "Low":
-                    logging.error(f"Low severity vulnerability found: {vuln.get('title')}")
-                    sys.exit(1)  # Exit with non-zero status to abort the pipeline
+                vuln_id = vuln.get("id")
+                severity = vuln.get("severity")
+                description = vuln.get("description")
+                logging.info(f"Vuln ID: {vuln_id}, Severity: {severity}, Description: {description}")
+
+                if severity == "Low":
+                    low_severity_found = True
+
+            if low_severity_found:
+                logging.error("Low severity vulnerability found. Aborting the pipeline.")
+                sys.exit(1)  # Exit with non-zero status to abort the pipeline
+
             return vulnerabilities
+
         except Exception as e:
             logging.error(f"Error in InsightAppSec API: Get Vulnerabilities\n{e}")
             raise e
