@@ -18,5 +18,5 @@ phases:
     commands:
       - echo "Build started"
       - cd bin
-      - set -o pipefail 
-      - python3 main.py & PYTHON_PID=$!; tail -f ../log/scan_automation.log & TAIL_PID=$!; wait $PYTHON_PID; kill $TAIL_PID 
+      - set -o pipefail  # Add this to ensure the pipeline fails if the Python script exits with a non-zero status
+      - python3 main.py | tee ../log/scan_automation.log
