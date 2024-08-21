@@ -1,6 +1,7 @@
 import logging
 import time
 from .insightappsec import InsightAppSec
+import sys
 
 
 def create_scan(api_key: str, region: str, settings: dict):
@@ -30,11 +31,30 @@ def create_scan(api_key: str, region: str, settings: dict):
     except Exception as e:
         logging.error(f"Encountered error while creating scans: {e}")
 
+# def report_findings(api: InsightAppSec, scan_ids: [str], id_to_names: dict):
+#     """
+#     Given list of scan IDs, report on number of vulnerabilities found
+#     """
+#     logging.info("REPORTING VULNERABILITY DETAILS OF SCANS... (Scan ID, App Name, Scan Config Name): DETAILS")
+#     for scan_id in scan_ids:
+#         vulnerabilities = api.get_vulnerabilities(scan_id)
+#         num_findings = len(vulnerabilities.get("data", []))
+#         logging.info(f"({scan_id}, {id_to_names.get(scan_id)[0]}, {id_to_names.get(scan_id)[1]}: {num_findings} vulnerabilities found)")
+
+#         for vuln in vulnerabilities.get("data", []):
+#             vuln_id = vuln.get("id")
+#             severity = vuln.get("severity")
+#             description = vuln.get("description")
+#             logging.info(f"Vuln ID: {vuln_id}, Severity: {severity}, Description: {description}")
+
 def report_findings(api: InsightAppSec, scan_ids: [str], id_to_names: dict):
     """
-    Given list of scan IDs, report on number of vulnerabilities found
+    Given list of scan IDs, report on number of vulnerabilities found.
+    Aborts pipeline if any Low severity vulnerabilities are detected.
     """
     logging.info("REPORTING VULNERABILITY DETAILS OF SCANS... (Scan ID, App Name, Scan Config Name): DETAILS")
+    abort_pipeline = False  # Flag to determine if pipeline should abort
+
     for scan_id in scan_ids:
         vulnerabilities = api.get_vulnerabilities(scan_id)
         num_findings = len(vulnerabilities.get("data", []))
@@ -45,6 +65,14 @@ def report_findings(api: InsightAppSec, scan_ids: [str], id_to_names: dict):
             severity = vuln.get("severity")
             description = vuln.get("description")
             logging.info(f"Vuln ID: {vuln_id}, Severity: {severity}, Description: {description}")
+            
+            # Abort pipeline if Low severity is found
+            if severity.lower() == "low":
+                abort_pipeline = True
+
+    if abort_pipeline:
+        logging.error("Low severity vulnerability found. Aborting the pipeline.")
+        sys.exit(1)  # Exit with a non-zero code to abort the pipeline
 
 def track_scans(api: InsightAppSec, scan_ids: [str], id_to_names: dict, interval: int):
     """
